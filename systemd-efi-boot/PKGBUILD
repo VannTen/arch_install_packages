@@ -4,7 +4,7 @@
 # then please put 'unknown'.
 
 # Maintainer: Your Name <youremail@domain.com>
-pkgname=systemd-efi-boot
+pkgname=systemd-efi-boot-conf
 pkgver=1
 pkgrel=1
 epoch=
