@@ -1,0 +1,21 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=passwordless_sudo
+pkgver=1
+pkgrel=1
+pkgdesc="Allow passwordless sudo for member of sudo group"
+arch=(any)
+license=('GPL')
+groups=()
+depends=(base linux)
+source=(passwordless_sudo)
+sha512sums=('fe10a5e1ce6e833342585201c5777df18983c2f8f0a3512910851edc2f28bf483e7446264644ef8de10e76d1fee1b1d298e6813b28fc80785bf315313dce96e8')
+install=create_sudo_group.install
+
+package() {
+	install -Dm440 passwordless_sudo $pkgdir/etc/sudoers.d/passwordless_sudo
+}
