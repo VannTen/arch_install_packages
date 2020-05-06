@@ -1,0 +1,20 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=mkinitcpio-conf
+pkgver=1
+pkgrel=1
+pkgdesc="mkinitcpio configuration LVM on LUKS + resume"
+arch=(any)
+license=('GPL')
+groups=()
+depends=(base linux)
+source=(mkinitcpio.conf)
+sha512sums=('3a4230921bde78d38938234c13fa39b142efe244680e8f2c5a82148fbc446afb961f446ad9e1ad475006178688227a6e39619279ffcccb507a704af70c590e1b')
+
+package() {
+	install -Dm644 mkinitcpio.conf $pkgdir/etc/mkinitcpio.conf
+}
