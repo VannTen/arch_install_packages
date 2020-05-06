@@ -1,0 +1,25 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=netctl-base-profiles
+pkgver=1
+pkgrel=1
+epoch=
+pkgdesc="netctl ethernet and stub wpa profiles"
+arch=(any)
+license=('GPL')
+groups=()
+depends=(netctl dhcpcd wpa_supplicant ifplugd)
+source=(ethernet-dhcp wireless-wpa)
+sha512sums=('79014661a2146ff90fafe936adc6d69203998bc4d8d112cf34eac8bb8ae9e30bac9a18fa553d0de69f584a6b13c753460348791e50f09abfdb721deade0e0755'
+            'd4cf6fa794766857a869d527d6111e3e4184320829d4859cb28c91e8b3e0c12f04668090c131fa5c8289452c32310e08a026bcc0c9b44b0fc70333851ca6bf8d')
+
+install=netctl-units.install
+
+package() {
+	install -Dm644 ethernet-dhcp $pkgdir/etc/netctl/ethernet-dhcp
+	install -Dm600 wireless-wpa $pkgdir/etc/netctl/wireless-wpa
+}

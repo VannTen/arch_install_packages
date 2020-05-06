@@ -1,0 +1,10 @@
+## arg 1:  the new package version
+post_install() {
+	systemctl enable netctl-auto@wlp2s0
+	systemctl enable netctl-ifplugd@eno1
+}
+
+pre_remove() {
+	systemctl disable netctl-auto@wlp2s0
+	systemctl disable netctl-ifplugd@eno1
+}
