@@ -1,0 +1,8 @@
+## arg 1:  the new package version
+pre_install() {
+	bootctl install
+}
+
+post_remove() {
+	bootctl remove
+}

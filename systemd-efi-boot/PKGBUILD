@@ -17,6 +17,8 @@ source=(loader.conf arch.conf)
 sha512sums=('8c6757871fa8eef3f629c423acdd5b9c3ec17b3527e36e47dc1687aaa18767d8052d9abfc877e0ac18eaf58e9cf3e03bd6b16dfbd83c783df5f85d0799eb1aa3'
             'df673d84b81a00e1d79aae85395ca5dc7d70920965828df00391c7b059e0c4229c0ea67b33d2dadcfc494cdff1ffe0c9e91468b039e098be188431806ee44bb7')
 
+install=systemd-boot.install
+
 
 package() {
 	install -Dm600 loader.conf $pkgdir/boot/loader/loader.conf
