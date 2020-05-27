@@ -1,0 +1,30 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=msmtpq-systemd
+pkgver=1
+pkgrel=1
+pkgdesc="Systemd unit for queuing and sending mail"
+arch=(any)
+license=('GPL')
+groups=()
+depends=()
+source=(msmtp-flush-mail msmtp.path msmtpq-systemd msmtp.service)
+sha512sums=('SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP')
+
+package() {
+	for i in msmtp.{path,service}
+	do
+		install -Dm644 $i $pkgdir/usr/lib/systemd/user/$i
+	done
+	for i in msmtp{-flush-mail,q-systemd}
+	do
+		install -Dm755 $i $pkgdir/usr/bin/$i
+	done
+}
