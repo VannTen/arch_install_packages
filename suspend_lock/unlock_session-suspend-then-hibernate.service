@@ -1,0 +1,6 @@
+[Unit]
+After=suspend-then-hibernate.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/lock-session suspend-then-hibernate unlock 
