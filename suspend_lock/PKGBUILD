@@ -1,0 +1,26 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: Max Gautier <ashelia1000@gmail.com>
+pkgname=suspend-autolock
+pkgver=1
+pkgrel=1
+pkgdesc="Auto lock on suspend and unlock on encrypted hibernate"
+arch=(any)
+license=('GPL')
+groups=()
+depends=()
+source=(
+		lock_session-suspend-hibernate.service
+		lock_session-suspend.service
+		suspend_lock_sessions.sh
+		unlock_session-suspend-then-hibernate.service
+	   )
+sha512sums=(SKIP SKIP SKIP SKIP)
+
+package() {
+	install -Dm644 *.service --target-directory=$pkgdir/usr/lib/systemd/system/wayland-login@.service
+	install -Dm700 suspend_lock_sessions.sh $pkgdir/usr/lib/suspend-autolock/suspend_lock_session
+}
