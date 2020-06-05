@@ -1,0 +1,23 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=waylandlogin
+pkgver=1
+pkgrel=1
+pkgdesc="Autologin of a wayland compositor"
+arch=(any)
+license=('GPL')
+groups=()
+depends=()
+source=(
+		wayland-env
+		wayland-login@.service)
+sha512sums=(SKIP SKIP)
+
+package() {
+	install -Dm644 wayland-login@.service $pkgdir/usr/lib/systemd/system/wayland-login@.service
+	install -Dm644 wayland-env $pkgdir/usr/share/wayland/env
+}
