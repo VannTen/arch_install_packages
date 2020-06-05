@@ -12,6 +12,7 @@ StandardOutput=journal
 PAMName=login
 EnvironmentFile=/usr/share/wayland/env
 ExecStart=/usr/bin/bash -l .wsession
+Restart=on-success
 
 [Install]
 WantedBy=graphical.target
