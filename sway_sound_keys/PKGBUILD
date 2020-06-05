@@ -1,0 +1,22 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: Max Gautier <ashelia1000@gmail.com>
+pkgname=sway-sound-keys
+pkgver=1
+pkgrel=1
+pkgdesc="Media sound keys for sway"
+arch=(any)
+license=('GPL')
+groups=()
+depends=(libpulse sway)
+source=(
+		sound_keys
+	   )
+sha512sums=(SKIP)
+
+package() {
+	install -Dm644 sound_keys --target-directory=$pkgdir/etc/sway/config.d/
+}
