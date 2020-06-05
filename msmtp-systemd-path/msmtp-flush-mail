@@ -2,7 +2,6 @@
 shopt -s extglob
 
 MSMTP_OPT="--read-envelope-from \
-		--read-recipients \
 		--logfile -"
 
 for i in $(ls -t $1)
