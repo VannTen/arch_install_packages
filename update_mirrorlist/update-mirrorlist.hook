@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Path
+Target = /etc/pacman.d/mirrorlist
+
+[Action]
+Description = Generating mirrorlist with reflector
+When = PostTransaction
+Exec = reflector -a 10 -l 20 -p https -p rsync --score 20 -f 10 --sort rate --threads 10 --save /etc/pacman.d/mirrorlist
+Depends = reflector

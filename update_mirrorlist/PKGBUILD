@@ -1,0 +1,19 @@
+# Maintainer: Max Gautier <ashelia1000@gmail.com>
+pkgname=reflector-mirrorlist
+pkgver=1
+pkgrel=1
+pkgdesc="Pacman hook for generate mirrorlist with reflector when updating it"
+arch=(any)
+license=('GPL')
+groups=()
+depends=(reflector)
+source=(
+		no_update_mirrorlist.conf
+		update-mirrorlist.hook
+	   )
+sha512sums=(SKIP SKIP)
+
+package() {
+	install -Dm644 no_update_mirrorlist.conf --target-directory=$pkgdir/etc/pacman.d/
+	install -Dm644 update-mirrorlist.hook --target-directory=$pkgdir/usr/share/libalpm/hooks
+}
