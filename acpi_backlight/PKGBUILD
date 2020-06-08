@@ -21,5 +21,5 @@ sha512sums=(SKIP SKIP SKIP)
 
 package() {
 	install -Dm644 event_backlight* --target-directory=$pkgdir/etc/acpi/events/
-	install -Dm755 brightness $pkgdir/etc/acpi/events
+	install -Dm755 brightness $pkgdir/etc/acpi/
 }

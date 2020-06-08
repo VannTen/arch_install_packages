@@ -1,12 +1,25 @@
 #!/bin/sh
 
 per_thousand=${per_thousand:-10}
-device=${device:-$(find /sys/class/backlight/ -name 'brightness' -printf "%h " 2>/dev/null)}
+device=${device:-$(find -L /sys/class/backlight/ -maxdepth 2 -name 'brightness' -printf "%h" 2>/dev/null)}
 max_brightness=$(< $device/max_brightness)
-step=$(( max_brigthness * per_thousand / 1000 )) 
-
+step=$(( max_brightness * per_thousand / 1000 ))
 
 case $1 in
-  -) echo $(($(< $device/brightness) - $step)) >$bl_dev/brightness;;
-  +) echo $(($(< $bl_dev/brightness) + $step)) >$bl_dev/brightness;;
+	-) new_val=$(($(< $device/brightness) - $step))
+		if [ $new_val -lt 0 ]
+		then
+			echo 0 >$device/brightness
+		else
+			echo $new_val>>$device/brightness
+		fi
+		;;
+	+) new_val=$(($(< $device/brightness) + $step))
+		if [ $new_val -gt $max_brightness ]
+		then
+			echo $max_brightness >$device/brightness
+		else
+			echo $new_val>$device/brightness
+		fi
+		;;
 esac
