@@ -4,15 +4,21 @@ After=systemd-user-sessions.service
 Conflicts=getty@tty7.service xlogin@.service
 
 [Service]
+Type=simple
 User=%i
 WorkingDirectory=~
 TTYPath=/dev/tty7
+TTYReset=yes
+TTYVHangup=yes
+TTYVTDisallocate=yes
 StandardError=journal
 StandardOutput=journal
 PAMName=login
 EnvironmentFile=/usr/share/wayland/env
 ExecStart=/usr/bin/bash -l .wsession
 Restart=on-success
+UtmpIdentifier=tty7
+UtmpMode=user
 
 [Install]
 WantedBy=graphical.target
