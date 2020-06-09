@@ -3,7 +3,7 @@ After=suspend-then-hibernate.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/lock-session suspend-then-hibernate unlock 
+ExecStart=/usr/lib/suspend-autolock/lock-session suspend-then-hibernate unlock
 
 [Install]
 WantedBy=suspend-then-hibernate.target

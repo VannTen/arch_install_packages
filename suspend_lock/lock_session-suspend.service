@@ -3,7 +3,7 @@ Before=suspend.target hybrid-sleep.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/lock-session lock
+ExecStart=/usr/lib/suspend-autolock/lock-session lock
 
 [Install]
 WantedBy=suspend.target hybrid-sleep.target

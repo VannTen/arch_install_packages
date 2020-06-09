@@ -22,5 +22,5 @@ sha512sums=(SKIP SKIP SKIP SKIP)
 
 package() {
 	install -Dm644 *.service --target-directory=$pkgdir/usr/lib/systemd/system/
-	install -Dm700 suspend_lock_sessions.sh $pkgdir/usr/lib/suspend-autolock/suspend_lock_session
+	install -Dm700 suspend_lock_sessions.sh $pkgdir/usr/lib/suspend-autolock/lock-session
 }
