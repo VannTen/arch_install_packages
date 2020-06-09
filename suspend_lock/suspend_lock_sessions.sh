@@ -41,8 +41,7 @@ function filter () {
 	echo $list
 }
 
-CMD=echo
-
+CMD=loginctl
 
 ######## Script
 

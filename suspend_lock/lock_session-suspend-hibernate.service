@@ -4,3 +4,6 @@ Before=suspend-then-hibernate.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/lock-session suspend-then-hibernate lock
+
+[Install]
+WantedBy=suspend-then-hibernate.target
