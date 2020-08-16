@@ -6,6 +6,6 @@ MSMTP_OPT="--read-envelope-from \
 
 for i in $(ls -t $1)
 do
-	/usr/bin/msmtp ${MSMTP_OPT} $(< "$1/$i/opt") < "$1/$i/mail"
+	/usr/bin/msmtp ${MSMTP_OPT} ${EXTRA_OPT} $(< "$1/$i/opt") < "$1/$i/mail"
 	rm -r $1/$i
 done
