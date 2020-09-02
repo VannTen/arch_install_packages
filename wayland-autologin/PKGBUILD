@@ -5,7 +5,7 @@
 
 # Maintainer: Your Name <youremail@domain.com>
 pkgname=waylandlogin
-pkgver=1
+pkgver=2
 pkgrel=1
 pkgdesc="Autologin of a wayland compositor"
 arch=(any)
