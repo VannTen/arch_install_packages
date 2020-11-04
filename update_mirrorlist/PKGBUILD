@@ -1,6 +1,6 @@
 # Maintainer: Max Gautier <ashelia1000@gmail.com>
 pkgname=reflector-mirrorlist-hook
-pkgver=2
+pkgver=3
 pkgrel=1
 pkgdesc="Pacman hook for generate mirrorlist with reflector when updating it"
 arch=(any)
