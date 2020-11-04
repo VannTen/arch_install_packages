@@ -1,7 +1,7 @@
 [Trigger]
 Operation = Upgrade
-Type = Path
-Target = /etc/pacman.d/mirrorlist
+Type = Package
+Target = pacman-mirrorlist 
 
 [Action]
 Description = Generating mirrorlist with reflector
