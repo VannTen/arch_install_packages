@@ -14,8 +14,9 @@ TTYVTDisallocate=yes
 StandardError=journal
 StandardOutput=journal
 PAMName=login
+Environment=XDG_CURRENT_DESKTOP=sway
 EnvironmentFile=/usr/share/wayland/env
-ExecStart=/usr/bin/sway --verbose
+ExecStart=/usr/bin/sway
 Restart=on-success
 UtmpIdentifier=tty7
 UtmpMode=user
